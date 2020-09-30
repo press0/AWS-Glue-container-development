@@ -1,4 +1,4 @@
-# AWS-Glue-container-development
+## AWS Glue container ETL development
 
 From the September 5 2020 AWS big data blog post 
  - [Developing AWS Glue ETL jobs locally using a container](https://aws.amazon.com/blogs/big-data/developing-aws-glue-etl-jobs-locally-using-a-container)
@@ -12,7 +12,7 @@ Install and start the AWS Glue container with a Jupyter notebook
 docker run -itd -p 8888:8888 -p 4040:4040 -v ~/.aws:/root/.aws:ro --name glue_jupyter amazon/aws-glue-libs:glue_libs_1.0.0_image_01 /home/jupyter/jupyter_start.sh
 ```
 
-Display the AWS Glue Data Catalog from the Spark Py REPL  
+#### Display the AWS Glue Data Catalog from the Spark Py REPL  
 ```bash
 docker exec -it  glue_jupyter  bash
 /home/spark-2.4.3-bin-spark-2.4.3-bin-hadoop2.8/bin/pyspark
@@ -27,7 +27,7 @@ spark.sql("show databases").show()
 +------------+
 ```
 
-Display the AWS Glue Data Catalog from the Spark Scala REPL
+#### Display the AWS Glue Data Catalog from the Spark Scala REPL
 ```bash
 docker exec -it  glue_jupyter  bash
 /home/spark-2.4.3-bin-spark-2.4.3-bin-hadoop2.8/bin/spark-shell
@@ -40,15 +40,14 @@ spark.sql("show databases").show()
 |     default|
 |    sampledb|
 +------------+
-
 ```
 
-Start Jupyter Notebooks:
+#### Start Jupyter:
 ```bash
  Jupyter Notebook URL : http://localhost:8888
 ```
 
-Run an AWS Glue ETL job from a Jupyter Notebook: [csv2parquet.md](csv2parquet.md)
+#### Run an AWS Glue ETL job from a [Jupyter Notebook](csv2parquet.md):
 
 ```jupyterpython
 from awsglue.transforms import *
